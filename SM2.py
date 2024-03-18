@@ -24,11 +24,15 @@ else :
 siteUrl = "http://127.0.0.1:8000"
 
 if st.button("Envoyer la requête"):
-    params = {'texte': userInput}  # `texte` est maintenant passé en tant que paramètre de requête
+    params = {'texte': userInput}
     if userContext is not None:
         if contextSelect == "File" :
             files = {"file": (userContext.name, userContext, userContext.type)}
-        response = requests.post(siteUrl+context, params=params, files=files)
+            response = requests.post(siteUrl+context, params=params, files=files)
+        else :
+            params["context"] = userContext
+            print(params)
+            response = requests.post(siteUrl+context, params=params)
     else:
         response = requests.post(siteUrl+'/withoutFile', params=params)
     
