@@ -11,7 +11,7 @@ userInput = st.text_input(f"write to the {model}")
 
 contextSelect = st.radio("Pick a context mode:", ["File", "Text"])
 if contextSelect == "File":
-    userContext = st.file_uploader("Pick a file for the context")
+    userContext = st.file_uploader("Pick a file for the context", accept_multiple_files=True)
     context = "/uploadfile"
 else:
     userContext = st.text_input("write the context")
