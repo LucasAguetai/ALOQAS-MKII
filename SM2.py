@@ -4,7 +4,7 @@ import json
 
 
 model = st.selectbox('which model would you like to use',
-                     ('MobileBERT', 'BERT', 'DeBERTa-v2'))
+                    ('MobileBERT', 'BERT', 'DeBERTa-v2'))
 
 
 userInput = st.text_input(f"write to the {model}")
@@ -20,7 +20,7 @@ else:
 siteUrl = "http://127.0.0.1:8000"
 
 if st.button("Envoyer la requête"):
-    params = {'texte': userInput}
+    params = {'texte': userInput, "model": model}
     if userContext is not None:
         if contextSelect == "File":
             files = {"file": (userContext.name, userContext, userContext.type)}

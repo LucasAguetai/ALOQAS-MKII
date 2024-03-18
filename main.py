@@ -2,6 +2,11 @@ from fastapi import FastAPI, HTTPException, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Annotated
 import uvicorn
+from fastapi import FastAPI, UploadFile, File 
+from typing import Union 
+import json 
+import csv
+
 
 app = FastAPI()
 
@@ -25,21 +30,21 @@ async def root():
 
 
 @app.post("/uploadfile/")
-async def create_upload_file(file: UploadFile, texte: str):
+async def create_upload_file(file: UploadFile, texte: str, model: str):
 
-    return {"texte": texte, "filename": file.filename}
+    return {"model": model, "texte": texte, "filename": file.filename}
 
 
 @app.post("/contextText/")
-async def create_upload_file(context: str, texte: str):
+async def create_upload_file(context: str, texte: str, model: str):
 
-    return {"texte": texte, "context": context}
+    return {"model": model, "texte": texte, "context": context}
 
 
 @app.post("/withoutFile/")
-async def create_upload_file(texte: str):
+async def create_upload_file(texte: str, model: str):
 
-    return {"texte": texte}
+    return {"model": model, "texte": texte}
 
 
 def extract_data(file: UploadFile) -> Union[str, dict, list]:
