@@ -35,3 +35,4 @@ if st.button("Envoyer la requête"):
 
     st.write("Statut de la requête:", response.status_code)
     st.write("Réponse du serveur:", response.text)
+

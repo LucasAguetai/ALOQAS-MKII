@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+requests
+Pillow
+typing
+python-multipart
+transformers
+tensorflow
+tf-keras
+python-docx
+PyMuPDF
+chardet
+frontend
+typing
+torch
+pydantic
+PyPDF2
